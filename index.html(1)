@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will You Be Mine?</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #e75480;
+      font-size: 2.5em;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      margin: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+    .no {
+      background-color: #d3d3d3;
+      color: black;
+      position: absolute;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    #messages {
+      margin-top: 30px;
+      color: #e75480;
+      font-size: 1.3em;
+      line-height: 1.6;
+      max-width: 80%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mac Lenar Bringuela, will you be mine? 💖</h1>
+
+  <button class="btn yes" onclick="showMessages()">Yes</button>
+  <button class="btn no" id="noButton">No</button>
+
+  <div class="footer">From: Dev 💌</div>
+  <div id="messages"></div>
+
+  <script>
+    const noBtn = document.getElementById('noButton');
+
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.floor(Math.random() * (window.innerWidth - 100));
+      const y = Math.floor(Math.random() * (window.innerHeight - 100));
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    const messages = [
+      "Aww! You said YES! 😭💖",
+      "I've been waiting for this moment for so long...",
+      "You're the reason I smile every day 🌸",
+      "I promise to always make you feel loved and special 💍",
+      "This is just the beginning of our beautiful story 📖",
+      "I love you, Mac Lenar Bringuela 💗"
+    ];
+
+    function showMessages() {
+      let i = 0;
+      const messageBox = document.getElementById("messages");
+      messageBox.innerHTML = "";
+
+      const interval = setInterval(() => {
+        if (i < messages.length) {
+          messageBox.innerHTML += `<p>${messages[i]}</p>`;
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
